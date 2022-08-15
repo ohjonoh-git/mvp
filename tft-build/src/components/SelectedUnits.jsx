@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
+import {motion} from 'framer-motion'
 
 export default function SelectedUnits({currentUnitList}) {
 
@@ -14,10 +15,23 @@ export default function SelectedUnits({currentUnitList}) {
   // show image
   return (
     <SUContainer>
-      <Title>
+      {/* <Title>
         Current Units
-      </Title>
-      {currentUnitList ? currentUnitList.map((unit) => {return (<StyledItemsUL>{unit}</StyledItemsUL>)}) : null}
+      </Title> */}
+      <motion.div
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1.0 }}>
+        <h2>Current Units</h2>
+      </motion.div>
+
+      {currentUnitList ? currentUnitList.map((unit) => {return (
+        <motion.div
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1.0 }}>
+        <StyledItemsUL>{unit}</StyledItemsUL>
+      </motion.div>)}) : null}
     </SUContainer>
   )
 }

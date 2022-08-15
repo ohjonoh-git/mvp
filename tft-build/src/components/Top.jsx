@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components'
+import {motion} from 'framer-motion'
 
 
 const options = ['test', 'test2']
@@ -11,7 +12,14 @@ export default function Top() {
 
   return (
     <TopContainer>
-            <h1>MORT PLEASE</h1>
+      <motion.button
+        whileHover={{ scale: 1.5 }}
+        whileTap={{ scale: 0.9 }}
+        >
+          <h1>MORT PLEASE</h1>
+      </motion.button>
+
+
     </TopContainer>
   )
 }

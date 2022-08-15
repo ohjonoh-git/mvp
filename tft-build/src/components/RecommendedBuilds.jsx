@@ -3,6 +3,21 @@ import styled from 'styled-components'
 import {data} from '../assets/teams.js'
 
 
+const SUContainer = styled.div`
+  order: 1;
+  padding: 50%;
+  align-content: flex-start;
+
+  .unitname {
+  }
+`
+const ChampList = styled.div`
+
+`
+const Pic = styled.img`
+  text-align: left;
+`
+
 export default function RecommendedBuilds(props) {
 
   const [recommended, setRecommended] = useState([]);
@@ -19,21 +34,6 @@ export default function RecommendedBuilds(props) {
     console.log('dataaa', data[choice]);
 
     setRecommended(data[choice]);
-    // }
-    // const traitsList = [];
-    // (props.currentUnitList).forEach(unit => {
-    //   unit.traits.forEach(trait => {
-    //     if (!traitsList.includes(trait)) {
-    //       traitsList.push(trait);
-    //     }
-    //   })
-    // })
-
-    // const recList = [];
-    //props.currentUnitList
-    // if the champion has this trait
-      //
-    //getImages(recommended);
   }, []);
 
 
@@ -42,19 +42,20 @@ export default function RecommendedBuilds(props) {
     <SUContainer>
       <h2>Recommended units</h2>
       {recommended ?
-        recommended.map(unit => (
-        <>
-          <ul>{unit.name}</ul>
-          <img src={unit.img}/>
-        </>
+        recommended.map((unit,i) => (
+        <ChampList>
+          <ul key={i} className="unitname">
+          <Pic src={unit.img} width="50" styles={styles.img}/>
+           {unit.name}</ul>
+        </ChampList>
         ))
       : null}
     </SUContainer>
   )
 }
 
-const SUContainer = styled.div`
-  order: 1;
-  padding: 50%;
-  align-content: flex-start;
-`
+const styles = {
+  img: {
+    padding: "5px"
+  }
+}
