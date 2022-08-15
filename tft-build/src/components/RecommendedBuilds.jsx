@@ -56,6 +56,7 @@ export default function RecommendedBuilds(props) {
 
 const styles = {
   img: {
-    padding: "5px"
+    padding: "5px",
+    marginRight: "10px"
   }
 }

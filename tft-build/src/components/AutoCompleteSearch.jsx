@@ -40,7 +40,7 @@ export default function AutoCompleteSearch (props) {
         <div>
           {suggestions.map((unit, i) => (<ul style={styles.suggest} key={i} onClick={() =>
           suggestionSelected(unit.name)}>
-          <img src={require(`../assets/champions/${unit.name}.png`)} alt="searchImg" />
+          <img width="40" src={require(`../assets/champions/${unit.name}.png`)} alt="searchImg" />
           {unit.name}
           </ul>))}
         </div>
@@ -66,9 +66,9 @@ const styles = {
     left: "0%"
   },
   img: {
+    marginRight: "10px",
     width: "5px",
     height: "10px",
-    "object-fit": "contain",
     border: "2px solid #C0C0C0",
     padding: "5px"
   }
