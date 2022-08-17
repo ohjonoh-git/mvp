@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import {data} from '../assets/teams.js'
+import {motion} from 'framer-motion'
 
 
 const SUContainer = styled.div`
@@ -15,7 +16,6 @@ const ChampList = styled.div`
 
 `
 const Pic = styled.img`
-  text-align: left;
 `
 
 export default function RecommendedBuilds(props) {
@@ -27,7 +27,7 @@ export default function RecommendedBuilds(props) {
   useEffect( () => {
     setRecommended(props.currentUnitList);
 
-    let choice = (Math.floor(Math.random() * 2) + 1);
+    let choice = (Math.floor(Math.random() * 3) + 1);
     // async function getImages (data) {
     //   // get champions with the same traits
     console.log('choice', choice);
@@ -40,23 +40,43 @@ export default function RecommendedBuilds(props) {
 
   return (
     <SUContainer>
-      <h2>Recommended units</h2>
+      <motion.div
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1.0 }}>
+        <h2 style={{textAlign: 'center'}}>Final Units</h2>
+      </motion.div>
       {recommended ?
         recommended.map((unit,i) => (
-        <ChampList>
-          <ul key={i} className="unitname">
-          <Pic src={unit.img} width="50" styles={styles.img}/>
-           {unit.name}</ul>
-        </ChampList>
+        <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.0 }}>
+          <ChampList>
+            <ul style={styles.list} key={i} className="unitname">
+            <Pic src={unit.img} width="50" style={styles.img}/>
+            <text style={styles.text}>{unit.name}</text></ul>
+          </ChampList>
+        </motion.div>
         ))
       : null}
     </SUContainer>
   )
 }
 
+
 const styles = {
+  list: {
+    verticalAlign: 'middle',
+    width: 150
+  },
   img: {
-    padding: "5px",
-    marginRight: "10px"
+    width: 50,
+    textAlgin: 'left'
+  },
+  text: {
+    position: "relative",
+    marginLeft: "10px",
+    float: "right"
   }
 }

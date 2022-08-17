@@ -6,10 +6,17 @@ export default function DoneButton (props) {
 
 
   return (
-    <div>
+    <div style={styles.button}>
         <button onClick={() => props.setDone(true)}>Done</button>
         {!isHidden && props.text}
     </div>
   )
 
+}
+
+const styles = {
+  button: {
+    paddingTop: 10,
+    paddingBottom: 10
+  }
 }

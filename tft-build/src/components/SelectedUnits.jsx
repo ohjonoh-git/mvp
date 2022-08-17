@@ -22,7 +22,7 @@ export default function SelectedUnits({currentUnitList}) {
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.0 }}>
-        <h2>Current Units</h2>
+        <h2 style={{textAlign: 'center'}}>Current Units</h2>
       </motion.div>}
 
       {currentUnitList ? currentUnitList.map((unit) => {return (
@@ -30,50 +30,37 @@ export default function SelectedUnits({currentUnitList}) {
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.0 }}>
-        <StyledItemsUL>
-        <img styles={styles.img}src={require(`../assets/champions/${unit}.png`)} alt="searchImg" width="40"/>
-          {unit}</StyledItemsUL>
+        <ul style={styles.list}>
+        <img style={styles.img} src={require(`../assets/champions/${unit}.png`)} alt="searchImg"/>
+         <text style={styles.text}>{unit}</text></ul>
       </motion.div>)}) : null}
     </SUContainer>
   )
 }
 
 const styles = {
+  list: {
+    verticalAlign: 'middle',
+    width: 150
+  },
   img: {
-    marginRight: "5px"
+    width: 50,
+    textAlgin: 'left'
   },
   text: {
     position: "relative",
-    marginLeft: "10px"
+    marginLeft: "10px",
+    float: "right"
   }
 }
 
 const SUContainer = styled.div`
-
-  align-items: center;
+  order: 1;
+  padding: 50%;
+  align-content: flex-start;
 `
 
-const Title = styled.div`
-  position: relative;
-  animation-duration: 3s;
-  animation-name: slidein;
-  animation-iteration-count: infinite;
-  top: 0px;
-  left: 8%;
-  @keyframes slidein {
-  from {
-    margin-right: 100%;
-
-  }
-
-  to {
-    margin-right: 0%;
-  }
-}
-`
 
 const StyledItemsUL = styled.ul`
-  position: relative;
-  top: 5%;
-  left: 5%;
+
 `;

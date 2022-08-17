@@ -14,8 +14,7 @@ export default function Top() {
     <TopContainer>
       <motion.button
         whileHover={{ scale: 1.5 }}
-        whileTap={{ scale: 0.9 }}
-        >
+        whileTap={{ scale: 0.9 }}>
           <h1>MORT PLEASE</h1>
       </motion.button>
 
@@ -24,6 +23,8 @@ export default function Top() {
   )
 }
 
+
 const TopContainer = styled.div`
   padding-top: 50%;
+
 `

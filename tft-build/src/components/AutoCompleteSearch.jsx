@@ -40,8 +40,8 @@ export default function AutoCompleteSearch (props) {
         <div>
           {suggestions.map((unit, i) => (<ul style={styles.suggest} key={i} onClick={() =>
           suggestionSelected(unit.name)}>
-          <img width="40" src={require(`../assets/champions/${unit.name}.png`)} alt="searchImg" />
-          {unit.name}
+          <img className="searchImg" style={styles.searchImg} src={require(`../assets/champions/${unit.name}.png`)} alt="searchImg" />
+          <text style={styles.text}>{unit.name}</text>
           </ul>))}
         </div>
       )
@@ -50,12 +50,12 @@ export default function AutoCompleteSearch (props) {
 
   return (
     <>
-    <Container>
-      <Wrapper>
-          <TextInput type="text" onChange={onTextChanged} value={text}/>
-          {renderSuggestions()}
+      <Container>
+        <Wrapper>
+            <TextInput type="text" onChange={onTextChanged} value={text}/>
+            {renderSuggestions()}
         </Wrapper>
-    </Container>
+      </Container>
     </>
   )
 }
@@ -63,14 +63,20 @@ export default function AutoCompleteSearch (props) {
 const styles = {
   suggest: {
     position: "relative",
-    left: "0%"
+    paddingBottom: 10
   },
   img: {
-    marginRight: "10px",
     width: "5px",
-    height: "10px",
-    border: "2px solid #C0C0C0",
-    padding: "5px"
+    height: "10px"
+  },
+  searchImg: {
+    width: '40px',
+    paddingRight: 19,
+    verticalAlign: 'middle'
+  },
+  text: {
+    paddingBottom: 10,
+    position: 'center'
   }
 }
 
@@ -79,16 +85,17 @@ const Container = styled.div`
 `
 const Wrapper = styled.div`
 
-  width: 100%;
+  width: 90%;
   border: 1px solid grey;
   box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 4px 1px rgba(0,0,0,.18);
   font-family: 'Gotham Black', sans-serif;
   font-size: 14px;
   color: black;
   margin: 150px auto 0 auto;
+  margin-bottom: 10px;
 `
 const TextInput = styled.input`
-  width: 100%;
+  width: 89.9%;
   border: none;
   font-family: 'Gotham Black', sans-serif;
   font-size: 14px;

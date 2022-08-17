@@ -66,14 +66,15 @@ const Container = styled.div`
   align-items: flex-start;
 `
 const Wrapper1 = styled.div`
-
+  display: flex;
+  align-self: flex-start;
+  justify-content: flex-start;
   flex-flow: column;
-
+  align-items: center;
 `
 const MiddleContainer = styled.div`
   display: flex;
-  align-self: center;
-  min-width: 800px;
+
   flex-flow: column;
   justify-content: space-around;
   align-items:center;
